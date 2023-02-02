@@ -5,7 +5,7 @@ html{
 
 
 body{
-    background-image: url("./Neutral\ Simple\ Dekstop\ Wallpaper.png");
+    background-image: url("../Neutral\ Simple\ Dekstop\ Wallpaper.png");
     background-size: 100%;
     background-attachment: fixed;
     height: 100vh;
@@ -27,11 +27,33 @@ body{
 /* handles top container of page */
 header{
     background-color: rgb(4, 70, 70, .70);
-    height: 25%;
+    height: 30%;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-bottom: 0$;
+    margin-bottom: 0;
     text-align:center;
     padding-top: 2%;
+    width: 100%;
+}
+
+/* container */
+#mvmt-box{ 
+    position: relative;
+    overflow: hidden;
+}
+
+/* words */
+#moving{ 
+    position: absolute;
+    width: max-content;
+    margin-bottom: 0;
+}
+
+/* section */
+#mvmt{ 
+    position: absolute;
+    left: 0;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .navbar{
@@ -43,7 +65,7 @@ header{
 /* handles bottom container of page */
 main{
     display: flex;
-    height: 75%;
+    height: 70%;
 }
 
 article{
@@ -88,17 +110,38 @@ input::placeholder{
     text-align: center;
 }
 
+/* handles card in right article */
+
+#card-head{
+    color: black;
+    font-weight: 300;
+    text-align: justify;
+}
+
+#dest-name{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#dest-loc{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#dest-desc{
+    font-size: 15px;
+}
 
 /* handles left article */
 #left-article{
     font-family: 'Kavoon', cursive;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    /* align-content: center; */
     padding-top: 40px;
     padding-left: 10%;
     width: 40%;
-    height: 100%
+    height: 100%;
 }
 
 .more-space{

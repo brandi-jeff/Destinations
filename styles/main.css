@@ -1,0 +1,111 @@
+/* handles whole page */
+html{ 
+    box-sizing: border-box;
+} /* can also use :root{} */
+
+
+body{
+    background-image: url("./Neutral\ Simple\ Dekstop\ Wallpaper.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    height: 100vh;
+    color:black;
+}
+
+#submit-btns{
+    background-color: rgb(4, 70, 70, .80);
+    color: black;
+    font-weight: bold;
+    --bs-btn-border-color: rgba(14, 13, 13);
+    /* figure out why these arent working */
+    --btn-hover-bg: rgb(15, 13, 13);
+    --btn-hover-border-color: rgba(14, 13, 13);
+    --btn-hover-color: rgb(4, 70, 70);
+}
+
+
+/* handles top container of page */
+header{
+    background-color: rgb(4, 70, 70, .70);
+    height: 25%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 0$;
+    text-align:center;
+    padding-top: 2%;
+}
+
+.navbar{
+    background-color: rgb(4, 70, 70, .01) !important;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* handles bottom container of page */
+main{
+    display: flex;
+    height: 75%;
+}
+
+article{
+    width: 30%;
+    height: 85%;
+    margin-left: 5%;
+}
+
+.form-input{
+    background-color: rgba(17, 85, 85, 0.8);
+    border-radius: 0%;
+    border-color: rgb(255, 255, 255, .1);
+    text-overflow: ellipsis;
+    width: 250px;
+}
+
+input::placeholder{
+    color: rgba(255, 255, 255, 0.8);
+    font-size: small;
+}
+
+/* handles right article */
+
+#right-article{
+    font-family: "Shadows Into Light", cursive;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    padding-top: 30px;
+}
+
+#edit-btn{
+    --bs-btn-padding-x: 0.375rem;
+    --bs-btn-padding-y: .30rem;
+}
+
+#edit-btn, #remove-btn{
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+
+/* handles left article */
+#left-article{
+    font-family: 'Kavoon', cursive;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-top: 40px;
+    padding-left: 10%;
+    width: 40%;
+    height: 100%
+}
+
+.more-space{
+    background-color: rgba(17, 85, 85, 0.8);
+    border-radius: 0%;
+    border-color: rgb(255, 255, 255, .1);
+    text-overflow: ellipsis;
+    height: 50px;
+   width: 250px;
+}

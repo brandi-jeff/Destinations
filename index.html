@@ -26,7 +26,41 @@
         <p>Welcome to our page! Our goal is help you organize your ideas about future vacations so you can <br> save your favorite destinations all in one place!  Just fill out the form then browse through your <br> submissions to find your next adventure. Then, click a helpful link to begin your planning. Happy travels!</p>
 
         <!-- have this scroll across bottom of header <h4>Discover Your Next Vacation Destination!</h4> -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Plan It!
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://www.tripadvisor.com/">Trip Advisor</a></li>
+                  <li><a class="dropdown-item" href="https://www.google.com/travel/flights">Google Flights</a></li>
+                  <li><a class="dropdown-item" href="https://www.expedia.com/Hotels">Expedia Hotels</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button id="submit-btns" class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </header>
+
     <main>
         <article id="left-article">
             <form id="my_form" action="">
@@ -51,7 +85,7 @@
                  </div>
  
                  <div> 
-                     <input class="btn btn-primary" type="submit" value="Add to list">
+                     <input id="submit-btns" class="btn btn-primary" type="submit" value="Add to list">
                  </div>   
              </form>
         </article>

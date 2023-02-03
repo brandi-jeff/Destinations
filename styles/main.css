@@ -12,15 +12,15 @@ body{
     color:black;
 }
 
-#submit-btns{
+.btn{
     background-color: rgb(4, 70, 70, .80);
     color: black;
     font-weight: bold;
     --bs-btn-border-color: rgba(14, 13, 13);
-    /* figure out why these arent working */
-    --btn-hover-bg: rgb(15, 13, 13);
-    --btn-hover-border-color: rgba(14, 13, 13);
-    --btn-hover-color: rgb(4, 70, 70);
+    --bs-btn-hover-bg: rgb(15, 13, 13);
+    --bs-btn-hover-border-color: rgba(14, 13, 13);
+    --bs-btn-hover-color: rgb(4, 70, 70);
+    border-radius: 5px;
 }
 
 
@@ -28,7 +28,7 @@ body{
 header{
     background-color: rgb(4, 70, 70, .70);
     height: 30%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Kavoon", cursive, Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 0;
     text-align:center;
     padding-top: 2%;
@@ -45,7 +45,6 @@ header{
 #moving{ 
     position: absolute;
     width: max-content;
-    margin-bottom: 0;
 }
 
 /* section */
@@ -58,7 +57,7 @@ header{
 
 .navbar{
     background-color: rgb(4, 70, 70, .01) !important;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Kavoon", cursive, Georgia, 'Times New Roman', Times, serif;
 }
 
 
@@ -103,19 +102,37 @@ input::placeholder{
     --bs-btn-padding-y: .30rem;
 }
 
-#edit-btn, #remove-btn{
+button{
     font-size: 20px;
     width: 100px;
     height: 40px;
     text-align: center;
+    background-color: rgb(4, 70, 70, .70);
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: rgba(14, 13, 13);
 }
 
-/* handles card in right article */
+button:hover{
+    background-color: rgb(15, 13, 13);
+    border-color: rgba(14, 13, 13);
+    color: rgb(4, 70, 70); 
+}
+
+            /* handles card in right article */
+
+#card-btns{
+    display: flex;
+    justify-content: space-around;
+}
+
 
 #card-head{
     color: black;
     font-weight: 300;
     text-align: justify;
+    padding-left: 30px;
 }
 
 #dest-name{

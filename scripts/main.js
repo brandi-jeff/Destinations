@@ -52,15 +52,14 @@ let eventFlag = false;
 function addToCard(img, dest, loc, desc) {
     const cardDiv = document.createElement("div");
     cardDiv.setAttribute("id", "cardDiv");
-    cardDiv.setAttribute("class", "card"); 
+    cardDiv.setAttribute("class", "card");
     right_article.appendChild(cardDiv); // append inside right article under h2 element
 
     const imgTag = document.createElement("img");
     imgTag.setAttribute("class", "card-img-top");
     imgTag.setAttribute("alt", dest);
-    // imgTag.style.width = "15rem";
+    imgTag.style.width = "15rem";
     imgTag.style.height = "15rem";
-    // imgTag.setAttribute("style", "width: 15rem", "height: 15rem", "margin: 20px");
     cardDiv.appendChild(imgTag); //append inside div with id=dest-card
 
     if (img === "") {
@@ -119,55 +118,54 @@ function editCard(cardDiv) {
         
         cardDiv.newDest = prompt("Enter new destination city:");
         cardDiv.newLoc = prompt("Enter new destination state/country:");
-        cardDiv.newImg = prompt("Enter new URL:");
+        cardDiv.newImg= prompt("Enter new URL:");
         cardDiv.newDesc = prompt("Update description:");
     
         
         document.getElementById("dest-name").value = cardDiv.newDest;
-        document.getElementById("dest-loc").value = cardDiv.newLoc;
-        document.querySelector("img").setAttribute("src", cardDiv.newImg); 
+        document.getElementById("dest-loc").value = cardDiv.newLoc; 
         document.getElementById("dest-desc").value = cardDiv.newDesc;
     
         if (cardDiv.newImg !== null && cardDiv.newImg.length === 0) {
-        //     const editImg = document.querySelector("img");
-        //     editImg.setAttribute("src", cardDiv.newImg);
-        // } else {
-            getImg(cardDiv, cardDiv.newDest);
-        }
-    
-        if (cardDiv.newDest !== null && cardDiv.newDest.length === 0) {
-            cardDiv.newDest;
-        } else if (cardDiv.newDest.length > 0) {
-            const editDest = document.getElementById("dest-name");
-            editDest.innerText = cardDiv.newDest;
-        }
-    
-    
-        if (cardDiv.newLoc !== null && cardDiv.newLoc.length === 0) {
-            cardDiv.newLoc;
-        } else if (cardDiv.newLoc.length > 0) {
-            const editLoc = document.getElementById("dest-loc");
-            editLoc.innerText = cardDiv.newLoc;
-        }
-    
-        if (cardDiv.newDesc !== null && cardDiv.newDesc.length == 0) {
-            cardDiv.newDesc;
-        } else if (cardDiv.newDesc.length > 0) {
-            const editDesc = document.getElementById("dest-desc");
-            editDesc.innerText = cardDiv.newDesc;
-        }
+                getImg(cardDiv, cardDiv.newDest);
+            } else if (cardDiv.newImg.length > 0) {
+                cardDiv.querySelector("img").setAttribute("src", cardDiv.newImg);
+            }
+        
+            if (cardDiv.newDest !== null && cardDiv.newDest.length === 0) {
+                cardDiv.newDest;
+            } else if (cardDiv.newDest.length > 0) {
+                const editDest = document.getElementById("dest-name");
+                editDest.innerText = cardDiv.newDest;
+            }
+        
+            if (cardDiv.newLoc !== null && cardDiv.newLoc.length === 0) {
+                cardDiv.newLoc;
+            } else if (cardDiv.newLoc.length > 0) {
+                const editLoc = document.getElementById("dest-loc");
+                editLoc.innerText = cardDiv.newLoc;
+            }
+        
+            if (cardDiv.newDesc !== null && cardDiv.newDesc.length == 0) {
+                cardDiv.newDesc;
+            } else if (cardDiv.newDesc.length > 0) {
+                const editDesc = document.getElementById("dest-desc");
+                editDesc.innerText = cardDiv.newDesc;
+            }
 }
 
 
 // remove button to remove card
 function removeCard(cardDiv) {
-   const clickedRmv = cardDiv.currentTarget;
-    const getParent = clickedRmv.parentElement.parentElement.parentElement;
-    getParent.remove();
-}
+    const clickedRmv = cardDiv.currentTarget;
+     const getParent = clickedRmv.parentElement.parentElement.parentElement;
+     getParent.remove();
+ }
 
 // use API for photos
 function getImg(cardDiv, dest) {
+    let photo = "";
+    
     if (eventFlag) {
         dest = document.getElementById("dest-name").value;
     } else {
@@ -177,7 +175,7 @@ function getImg(cardDiv, dest) {
     const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
     fetch(url).then(response => response.json())
     .then(photos=>  { 
-        const stockImg = photos.results[1].urls.thumb;
+        const stockImg = photos.results[5].urls.thumb;
         cardDiv.querySelector(".card-img-top")
         .setAttribute("src", stockImg);
     });

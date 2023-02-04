@@ -6,9 +6,11 @@ html{
 
 body{
     background-image: url("../Neutral\ Simple\ Dekstop\ Wallpaper.png");
-    background-size: 100%;
-    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
     color:black;
 }
 
@@ -88,13 +90,18 @@ input::placeholder{
 
 /* handles right article */
 
-#right-article{
+#right_article{
     font-family: "Shadows Into Light", cursive;
-    display: flex;
-    flex-direction: column;
     width: 60%;
     height: 100%;
     padding-top: 30px;
+}
+
+
+
+#cardDiv{
+    width: 250px;
+    height: 390px;
 }
 
 #edit-btn{
@@ -107,7 +114,7 @@ button{
     width: 100px;
     height: 40px;
     text-align: center;
-    background-color: rgb(4, 70, 70, .70);
+    background-color: rgb(4, 70, 70, .80);
     color: black;
     font-weight: bold;
     border-radius: 5px;
@@ -135,22 +142,27 @@ button:hover{
     padding-left: 30px;
 }
 
+#card-body{
+    padding-left: 5px;
+}
+
 #dest-name{
     font-size: 30px;
     font-weight: bold;
 }
 
 #dest-loc{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 #dest-desc{
-    font-size: 15px;
+    font-size: 25px;
 }
 
+
 /* handles left article */
-#left-article{
+#left_article{
     font-family: 'Kavoon', cursive;
     display: flex;
     flex-direction: column;

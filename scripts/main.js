@@ -57,19 +57,22 @@ function addToCard(img, dest, loc, desc) {
 
     const imgTag = document.createElement("img");
     imgTag.setAttribute("class", "card-img-top");
+    imgTag.setAttribute("class", "flex-grow-1");
     imgTag.setAttribute("alt", dest);
     imgTag.style.width = "15rem";
     imgTag.style.height = "15rem";
     cardDiv.appendChild(imgTag); //append inside div with id=dest-card
 
     if (img === "") {
-        getImg(cardDiv, img);
+        // getImg(cardDiv, img);
+        imgTag.setAttribute("src", defaultPhoto);
     } else {
         imgTag.setAttribute("src", img);
     }
 
     const cardBody = document.createElement("div");
     cardBody.setAttribute("id", "card-body")
+    cardBody.setAttribute("class", "flex-grow-1");
     cardDiv.appendChild(cardBody); //append inside div with id=dest-card, under img element
 
     const destName = document.createElement("h5");
@@ -121,37 +124,35 @@ function editCard(cardDiv) {
         cardDiv.newImg= prompt("Enter new URL:");
         cardDiv.newDesc = prompt("Update description:");
     
+        if (cardDiv.newImg !== null && cardDiv.newImg.length > 0) {
+                // getImg(cardDiv, cardDiv.newDest);
+            const img = cardDiv.currentTarget.parentElement.parentElement.parentElement;
+            img.querySelector("img").setAttribute("src", cardDiv.newImg);
+            }
         
-        document.getElementById("dest-name").value = cardDiv.newDest;
-        document.getElementById("dest-loc").value = cardDiv.newLoc; 
-        document.getElementById("dest-desc").value = cardDiv.newDesc;
+        const oldParentDest = cardDiv.currentTarget.parentElement.parentElement;
+        const oldDest = oldParentDest.querySelector("#dest-name");    
+        if (cardDiv.newDest !== null && cardDiv.newDest.length === 0) {
+            return oldDest;
+        } else if (cardDiv.newDest.length > 0) {
+            oldDest.innerText = cardDiv.newDest;
+        }
     
-        if (cardDiv.newImg !== null && cardDiv.newImg.length === 0) {
-                getImg(cardDiv, cardDiv.newDest);
-            } else if (cardDiv.newImg.length > 0) {
-                cardDiv.querySelector("img").setAttribute("src", cardDiv.newImg);
-            }
-        
-            if (cardDiv.newDest !== null && cardDiv.newDest.length === 0) {
-                cardDiv.newDest;
-            } else if (cardDiv.newDest.length > 0) {
-                const editDest = document.getElementById("dest-name");
-                editDest.innerText = cardDiv.newDest;
-            }
-        
-            if (cardDiv.newLoc !== null && cardDiv.newLoc.length === 0) {
-                cardDiv.newLoc;
-            } else if (cardDiv.newLoc.length > 0) {
-                const editLoc = document.getElementById("dest-loc");
-                editLoc.innerText = cardDiv.newLoc;
-            }
-        
-            if (cardDiv.newDesc !== null && cardDiv.newDesc.length == 0) {
-                cardDiv.newDesc;
-            } else if (cardDiv.newDesc.length > 0) {
-                const editDesc = document.getElementById("dest-desc");
-                editDesc.innerText = cardDiv.newDesc;
-            }
+        const oldParentLoc = cardDiv.currentTarget.parentElement.parentElement;
+        const oldLoc = oldParentLoc.querySelector("#dest-loc");    
+        if (cardDiv.newLoc !== null && cardDiv.newLoc.length === 0) {
+            return oldLoc;
+        } else if (cardDiv.newLoc.length > 0) {
+            oldLoc.innerText = cardDiv.newLoc;
+        }
+
+        const oldParentDesc = cardDiv.currentTarget.parentElement.parentElement;
+        const oldDesc = oldParentDesc.querySelector("#dest-desc");
+        if (cardDiv.newDesc !== null && cardDiv.newDesc.length == 0) {
+            return oldDesc;
+        } else if (cardDiv.newDesc.length > 0) {
+            oldDesc.innerText = cardDiv.newDesc;
+        }
 }
 
 
@@ -163,20 +164,28 @@ function removeCard(cardDiv) {
  }
 
 // use API for photos
-function getImg(cardDiv, dest) {
-    let photo = "";
+// function getImg(cardDiv) { //figure out why wont work when update photo, or why it updates wrong photo
     
-    if (eventFlag) {
-        dest = document.getElementById("dest-name").value;
-    } else {
-        dest = document.getElementById("dest-input").value;
-    }
+//     if (eventFlag) {
+//         const dest = document.getElementById("dest-name").value;
+
+//         const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
+//         fetch(url).then(response => response.json())
+//         .then(photos=>  { 
+//             const stockImg = photos.results[5].urls.thumb;
+//             cardDiv.querySelector(".card-img-top")
+//             .setAttribute("src", stockImg);
+//         });
+        
+//     } else {
+//        const dest = document.getElementById("dest-input").value;
     
-    const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
-    fetch(url).then(response => response.json())
-    .then(photos=>  { 
-        const stockImg = photos.results[5].urls.thumb;
-        cardDiv.querySelector(".card-img-top")
-        .setAttribute("src", stockImg);
-    });
-}
+//         const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
+//         fetch(url).then(response => response.json())
+//         .then(photos=>  { 
+//             const stockImg = photos.results[5].urls.thumb;
+//             cardDiv.querySelector(".card-img-top")
+//             .setAttribute("src", stockImg);
+//         });
+//     }
+// }

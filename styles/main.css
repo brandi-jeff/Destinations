@@ -64,15 +64,14 @@ header{
 
 
 /* handles bottom container of page */
+
 main{
-    display: flex;
-    height: 70%;
+    position: relative;
 }
 
 article{
     width: 30%;
     height: 85%;
-    margin-left: 5%;
 }
 
 .form-input{
@@ -95,11 +94,18 @@ input::placeholder{
     width: 60%;
     height: 100%;
     padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 0;
+    position: absolute;
+    top: 5px;
+    right: -5px;
 }
 
 #cardDiv{
     width: 242px;
     max-height: 475px;
+    display: flex;
+    flex-direction: column;
 }
 
 #edit-btn{
@@ -165,7 +171,6 @@ button:hover{
     font-family: 'Kavoon', cursive;
     display: flex;
     flex-direction: column;
-    /* align-content: center; */
     padding-top: 40px;
     padding-left: 10%;
     width: 40%;

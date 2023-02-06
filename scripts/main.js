@@ -189,18 +189,3 @@ function removeCard(cardDiv) {
 //         });
 //     }
 // }
-
-// Save data to local storage when the page unloads
-window.addEventListener("beforeunload", function() {
-    localStorage.setItem("dynamicData", JSON.stringify(dynamicData));
-  });
-  
-  // Retrieve data from local storage when the page loads
-  document.addEventListener("DOMContentLoaded", function() {
-    const retrievedData = JSON.parse(localStorage.getItem("dynamicData"));
-    if (retrievedData) {
-      dynamicData = retrievedData;
-      // Use the retrieved data to recreate the dynamic elements
-      // ...
-    }
-  });

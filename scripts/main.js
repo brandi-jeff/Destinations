@@ -133,24 +133,31 @@ function editCard(cardDiv) {
         const oldParentDest = cardDiv.currentTarget.parentElement.parentElement;
         const oldDest = oldParentDest.querySelector("#dest-name");    
         if (cardDiv.newDest !== null && cardDiv.newDest.length === 0) {
-            return oldDest;
+            oldDest.innerText;
         } else if (cardDiv.newDest.length > 0) {
             oldDest.innerText = cardDiv.newDest;
         }
-    
+  
         const oldParentLoc = cardDiv.currentTarget.parentElement.parentElement;
         const oldLoc = oldParentLoc.querySelector("#dest-loc");    
         if (cardDiv.newLoc !== null && cardDiv.newLoc.length === 0) {
-            return oldLoc;
+            oldLoc.innerText;
         } else if (cardDiv.newLoc.length > 0) {
             oldLoc.innerText = cardDiv.newLoc;
         }
 
         const oldParentDesc = cardDiv.currentTarget.parentElement.parentElement;
         const oldDesc = oldParentDesc.querySelector("#dest-desc");
-        if (cardDiv.newDesc !== null && cardDiv.newDesc.length == 0) {
-            return oldDesc;
+        if (cardDiv.newDesc !== null && cardDiv.newDesc.length === 0) {
+            oldDesc.innerText;
         } else if (cardDiv.newDesc.length > 0) {
+                if (oldDesc.innerText === undefined) {
+                const destDesc = document.createElement("p");
+                destDesc.setAttribute("id", "dest-desc");
+                cardBody.appendChild(destDesc);
+                destDesc.innerText = cardDiv.newDesc;
+                }
+                
             oldDesc.innerText = cardDiv.newDesc;
         }
 }

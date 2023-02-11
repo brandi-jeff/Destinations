@@ -1,6 +1,7 @@
 /* handles whole page */
 html{ 
     box-sizing: border-box;
+    overflow-x: hidden;
 } /* can also use :root{} */
 
 
@@ -101,11 +102,25 @@ input::placeholder{
     right: -5px;
 }
 
+#flexDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #cardDiv{
     width: 242px;
-    max-height: 475px;
+    max-height: 25rem;
     display: flex;
     flex-direction: column;
+    margin-right: 100px;
+    margin-top: 20px;
+    background-color: rgb(245, 232, 232, .6);
+}
+
+img{
+    border-radius: 5px;
+    max-height: 50%;
+   object-fit: cover;
 }
 
 #edit-btn{
@@ -134,9 +149,11 @@ button:hover{
             /* handles card in right article */
 
 #card-btns{
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 10px;
+  position: absolute;
+  bottom: 1vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 
@@ -147,7 +164,7 @@ button:hover{
     padding-left: 10px;
 }
 
-#card-body{
+#dest-name, #dest-loc, #dest-desc{
     padding-left: 5px;
 }
 

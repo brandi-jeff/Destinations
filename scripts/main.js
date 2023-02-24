@@ -60,7 +60,6 @@ function addToCard(img, dest, loc, desc) {
 
   const imgTag = document.createElement("img");
   imgTag.setAttribute("class", "card-img-top");
-  // imgTag.setAttribute("class", "flex-grow-1");
   imgTag.setAttribute("alt", dest);
   imgTag.style.width = "15rem";
   imgTag.style.height = "15rem";

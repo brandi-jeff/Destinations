@@ -63,6 +63,13 @@ header{
     }
 }
 
+@media screen and (min-width: 1919px){
+    header{
+        padding-top: 0;
+        height: 25%
+    }
+}
+
 .navbar{
     background-color: rgb(4, 70, 70, .01) !important;
     font-family: "Kavoon", cursive, Georgia, 'Times New Roman', Times, serif;

@@ -45,8 +45,8 @@ function storeUserInput() {
   addToCard(img, dest, loc, desc);
 }
 
-const defaultPhoto = "./defaultPic.PNG";
-let eventFlag = false; //flag to show card is being created not, edited
+// const defaultPhoto = "./defaultPic.PNG"; //used if no API
+let eventFlag = false; //flag to show card is being created not edited
 
 function addToCard(img, dest, loc, desc) {
   const groupDiv = document.createElement("div");
@@ -67,14 +67,13 @@ function addToCard(img, dest, loc, desc) {
 
   if (img === "") {
     getImg(cardDiv);
-    // imgTag.setAttribute("src", defaultPhoto);
+    // imgTag.setAttribute("src", defaultPhoto); //use if no API
   } else {
     imgTag.setAttribute("src", img);
   }
 
   const cardBody = document.createElement("div");
   cardBody.setAttribute("id", "card-body");
-  cardBody.setAttribute("class", "flex-grow-1");
   cardDiv.appendChild(cardBody); //append inside div with id=dest-card, under img element
 
   const destName = document.createElement("h5");
@@ -173,14 +172,14 @@ function removeCard(cardDiv) {
   getParent.remove();
 }
 
-// use API for photos
-function getImg(cardDiv, dest) { //figure out why wont work when update photo, or why it updates wrong photo
+// TODO check API for working if page is not refreshed... not an issue on live serve, only on actual page
+function getImg(cardDiv, dest) { 
   
   if (eventFlag) {
-      const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
+      const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id={VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI}`;
       fetch(url).then(response => response.json())
       .then(photos=>  {
-          editImg = cardDiv.srcElement;
+          const editImg = cardDiv.srcElement;
           const newImg = editImg.parentElement.parentElement.parentElement;
           const stockImg = photos.results[5].urls.thumb;
           newImg.querySelector(".card-img-top")

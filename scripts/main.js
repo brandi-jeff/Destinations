@@ -176,7 +176,7 @@ function removeCard(cardDiv) {
 function getImg(cardDiv, dest) { 
   
   if (eventFlag) {
-      const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id={VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI}`;
+      const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
       fetch(url).then(response => response.json())
       .then(photos=>  {
           const editImg = cardDiv.srcElement;
@@ -185,6 +185,7 @@ function getImg(cardDiv, dest) {
           newImg.querySelector(".card-img-top")
           .setAttribute("src", stockImg);
       });
+      eventFlag = false;
   } else {
      dest = document.getElementById("dest-input").value;
       const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;

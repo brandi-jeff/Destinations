@@ -181,7 +181,7 @@ function getImg(cardDiv, dest) {
       .then(photos=>  {
           const editImg = cardDiv.srcElement;
           const newImg = editImg.parentElement.parentElement.parentElement;
-          const stockImg = photos.results[5].urls.thumb;
+          const stockImg = photos.results[4].urls.thumb;
           newImg.querySelector(".card-img-top")
           .setAttribute("src", stockImg);
       });
@@ -191,7 +191,7 @@ function getImg(cardDiv, dest) {
       const url = `https://api.unsplash.com/search/photos?query=${dest}&client_id=VrE3yua9qa8PzQJ8uOdw1FPsC5l7IELgHg2fp5yCBqI`;
       fetch(url).then(response => response.json())
       .then(photos=>  {
-          const stockImg = photos.results[5].urls.thumb;
+          const stockImg = photos.results[9].urls.thumb;
           cardDiv.querySelector(".card-img-top")
           .setAttribute("src", stockImg);
       });

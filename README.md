@@ -1,4 +1,4 @@
-# [Vacation Ideas](https://brandi-jeff.github.io/vacation-ideas/)
+# [Vacation Ideas]( https://brandi-jeff.github.io/Destinations/)
 ## About the Project
 The goal is help you organize your ideas about future vacations by saving your favorite destinations ideas all in one place! Just fill out the form then browse through your
 submissions to find your next adventure. Then, click a helpful link in the navbar menu to begin your planning. Happy travels! 
